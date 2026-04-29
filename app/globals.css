@@ -2,11 +2,128 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: dark; }
-body { background:#070707; color:#f5f5f5; }
-.card { @apply rounded-2xl border border-neutral-800 bg-neutral-950/80 shadow-lg; }
-.btn { @apply rounded-xl px-4 py-2 font-semibold bg-orange-500 text-black hover:bg-orange-400 transition; }
-.btn-sub { @apply rounded-xl px-4 py-2 font-semibold bg-neutral-800 hover:bg-neutral-700 transition; }
-.input { @apply rounded-xl border border-neutral-700 bg-neutral-900 px-3 py-2 text-white outline-none focus:border-orange-500; }
-.badge { @apply rounded-full px-3 py-1 text-xs font-bold; }
-.cell { @apply rounded-xl border border-neutral-800 min-h-16 p-2 text-center text-xs flex flex-col justify-center; }
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background: #070707;
+  color: #f5f5f5;
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* カード */
+.card {
+  @apply rounded-2xl border border-neutral-800 bg-neutral-950/80 shadow-lg backdrop-blur;
+}
+
+/* ボタン */
+.btn {
+  @apply rounded-xl px-4 py-2.5 font-semibold bg-orange-500 text-black hover:bg-orange-400 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-sub {
+  @apply rounded-xl px-4 py-2.5 font-semibold bg-neutral-800 text-neutral-200 hover:bg-neutral-700 transition-all active:scale-95;
+}
+
+.btn-danger {
+  @apply rounded-xl px-4 py-2.5 font-semibold bg-red-600 text-white hover:bg-red-500 transition-all active:scale-95;
+}
+
+/* 入力欄 */
+.input {
+  @apply rounded-xl border border-neutral-700 bg-neutral-900 px-3 py-2.5 text-white outline-none transition focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+/* バッジ */
+.badge {
+  @apply rounded-full px-3 py-1 text-xs font-bold;
+}
+
+/* マップセル */
+.cell {
+  @apply rounded-xl border min-h-16 p-2 text-center text-xs flex flex-col justify-center transition-all cursor-pointer;
+}
+
+.cell:hover {
+  @apply scale-105 shadow-lg;
+}
+
+/* テーブル */
+.table-auto {
+  @apply w-full text-sm;
+}
+
+.table-auto thead {
+  @apply text-left text-neutral-400 border-b border-neutral-800;
+}
+
+.table-auto th {
+  @apply py-3 px-2 font-semibold;
+}
+
+.table-auto td {
+  @apply py-3 px-2 border-t border-neutral-800;
+}
+
+.table-auto tbody tr {
+  @apply transition hover:bg-neutral-900/50;
+}
+
+/* スクロールバー */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #171717;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #404040;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #525252;
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* グレード色 */
+.grade-S {
+  @apply bg-yellow-500 text-black;
+}
+
+.grade-A {
+  @apply bg-emerald-500 text-white;
+}
+
+.grade-B {
+  @apply bg-blue-500 text-white;
+}
+
+.grade-C {
+  @apply bg-neutral-600 text-white;
+}
+
+.grade-D {
+  @apply bg-neutral-800 text-neutral-400;
+}
